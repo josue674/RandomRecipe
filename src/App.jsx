@@ -34,23 +34,25 @@ function App() {
         <div className="DivContentInformation">
           <DarkMode />
           <div className="DivContentInstru">
-            <label className="Textos">Instructions :</label>
+            <label htmlFor="instructions" className="Textos">Instructions :</label>
             <textarea
               type="text"
               placeholder="I don't want to use the oven"
               className="InputInstru"
               name="instructions"
+              id="instructions"
               onChange={(e) => {
                 handleInputChange(e);
               }}
             />
           </div>
           <div className="DivContentIngre">
-            <label className="Textos">Ingredients :</label>
+            <label htmlFor="ingredients" className="Textos">Ingredients :</label>
             <textarea
               type="text"
               placeholder="Cucumber, Tomato, Salt and Lettuce"
               className="InputIngre"
+              id="ingredients"
               name="ingredients"
               onChange={(e) => {
                 handleInputChange(e);
@@ -58,6 +60,7 @@ function App() {
             />
           </div>
           <button
+          aria-label="Generate"
             {...(loading
               ? { disabled: true, className: "ButtonLoad" }
               : { className: "ButtonGenerate" })}
@@ -76,6 +79,7 @@ function App() {
             {/* </div> */}
             <div className="DivContentBut">
               <button
+              aria-label="Github"
                 className="BTNGit"
                 onClick={() => {
                   window.open(
@@ -87,6 +91,7 @@ function App() {
                 <BsGithub className="Github" />
               </button>
               <button
+              aria-label="Twitter"
                 className="BTNTwi"
                 onClick={() => {
                   window.open("https://twitter.com/Feedbacks_dev", "_blank");
@@ -98,8 +103,8 @@ function App() {
           </div>
         </div>
         <div className="DivContentRecipe">
-          <label className="Textos">Recipe</label>
-          <textarea className="TextRecipe" readOnly value={recipe} />
+          <label htmlFor="recipe" className="Textos">Recipe</label>
+          <textarea type="text" name="recipe" id="recipe" className="TextRecipe" readOnly value={recipe} />
         </div>
       </div>
     </>
